@@ -5,7 +5,7 @@ export async function onRequest(context) {
   // 用 IP 查城市
   const ipRes = await fetch(`https://ipapi.co/${ip}/json/`);
   const ipData = await ipRes.json();
-  const city = ipData.city || "北京";
+  const city = ipData.city || "Beijing";
 
   // 用城市查天气
   const res = await fetch(`https://uapis.cn/api/v1/misc/weather?city=${encodeURIComponent(city)}`);
