@@ -36,15 +36,14 @@ const windDirToChinese = (dir) => {
     S: "南", SSW: "南南西", SW: "西南", WSW: "西西南",
     W: "西", WNW: "西西北", NW: "西北", NNW: "北西北",
   };
-  return (map[dir] || dir) + "风";
+  return map[dir] || dir;  // 不加"风"
 };
 
 // 风速转换 (km/h → 风力等级)
 const windSpeedToLevel = (kmph) => {
-  // km/h 对应风力等级近似值
   const levels = [1, 6, 12, 20, 29, 39, 50, 62, 75, 89, 103, 117];
   for (let i = levels.length - 1; i >= 0; i--) {
-    if (kmph >= levels[i]) return i + 1;
+    if (kmph >= levels[i]) return i + 1;  // 只返回数字
   }
   return 0;
 };
@@ -64,7 +63,7 @@ const getWeatherData = async () => {
         weather: current.weatherDesc?.[0]?.value || "",
         temperature: current.temp_C,
         winddirection: windDirToChinese(current.winddir16Point || "N"),
-        windpower: windSpeedToLevel(current.windspeedKmph || 0) + "级",
+        windpower: windSpeedToLevel(current.windspeedKmph || 0),
       };
     } else {
       throw "天气数据获取失败";
