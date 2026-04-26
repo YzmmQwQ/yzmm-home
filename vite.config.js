@@ -94,6 +94,13 @@ export default ({ mode }) =>
     server: {
       port: "3000",
       open: true,
+      proxy: {
+        "/api/weather": {
+          target: "https://uapis.cn",
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/weather/, "/api/v1/misc/weather"),
+        },
+      },
     },
     resolve: {
       alias: [

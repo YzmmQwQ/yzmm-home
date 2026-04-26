@@ -70,6 +70,18 @@ export const getWeather = async (key, city) => {
 // 获取教书先生天气 API
 // https://api.oioweb.cn/doc/weather/GetWeather
 export const getOtherWeather = async () => {
-  const res = await fetch("https://api.oioweb.cn/api/weather/GetWeather");
+  try {
+    const res = await fetch("https://api.oioweb.cn/api/weather/GetWeather");
+    return await res.json();
+  } catch (error) {
+    console.error("教书先生天气API失败，尝试使用UAPI:", error);
+    return null;
+  }
+};
+
+// 获取 UAPI 天气 API
+// https://uapis.cn/doc/api/misc/weather
+export const getUapiWeather = async () => {
+  const res = await fetch("/api/weather");
   return await res.json();
 };

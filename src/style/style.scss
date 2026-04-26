@@ -19,7 +19,7 @@ body {
   padding: 0;
   background-color: #333;
   overflow: hidden;
-  font-family: "HarmonyOS_Regular", sans-serif;
+  font-family: "MiSans", sans-serif;
 }
 
 *,
@@ -137,7 +137,7 @@ a:hover {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   .el-card__header {
-    font-weight: bold;
+    font-weight: 600;
     padding: 16px 20px !important;
     background-color: #ffffff30 !important;
     border-bottom: 1px solid transparent !important;

@@ -13,8 +13,8 @@
           {{ fullYear }}
           <a :href="siteUrl">{{ siteAuthor }}</a>
         </span>
-        <!-- 以下信息请不要修改哦 -->
-        <span class="hidden">
+        <!-- 原作者信息 -->
+        <span>
           &amp;&nbsp;Made&nbsp;by
           <a :href="config.github" target="_blank">
             {{ config.author }}
@@ -23,7 +23,7 @@
         <!-- 站点备案 -->
         <span>
           &amp;
-          <a v-if="siteIcp" href="https://beian.miit.gov.cn" target="_blank">
+          <a v-if="siteIcp" :href="`https://icp.gov.moe/?keyword=${siteIcp.replace(/\D/g, '')}`" target="_blank">
             {{ siteIcp }}
           </a>
         </span>
