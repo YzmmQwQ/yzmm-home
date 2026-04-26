@@ -11,7 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
-.env
+# 我的 .env 没有密钥，因此直接上传
+# .env
 
 # Editor directories and files
 .vscode/*
