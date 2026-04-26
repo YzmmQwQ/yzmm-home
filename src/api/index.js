@@ -79,9 +79,15 @@ export const getOtherWeather = async () => {
   }
 };
 
-// 获取 UAPI 天气 API
-// https://uapis.cn/doc/api/misc/weather
-export const getUapiWeather = async () => {
-  const res = await fetch("/api/weather");
+// 获取 wttr.in 天气 API
+// https://github.com/chubin/wttr.in
+// 支持 CORS，无需 Key，支持 IP 自动定位
+export const getWttrWeather = async () => {
+  const city = import.meta.env.VITE_WEATHER_CITY || "";
+  // 不传城市则自动根据 IP 定位
+  const url = city
+    ? `https://wttr.in/${encodeURIComponent(city)}?format=j1`
+    : "https://wttr.in/?format=j1";
+  const res = await fetch(url);
   return await res.json();
 };
